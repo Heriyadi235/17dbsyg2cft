@@ -2,6 +2,7 @@
 var myChart = echarts.init(dom);
 var app = {};
 option = null;
+//数据
 var data = [
 {name: 	'中南大学'	, value: '这里是曼哥'},
 {name: 	'湖南师范大学'	, value: '袁圆'},
@@ -50,8 +51,10 @@ var data = [
 {name: '青岛大学', value: "徐阔"},
 {name: '中北大学', value: "于峻杭"},
 {name:'黑龙江大学',value:"郭旭"},
-{name:'大连工业大学',value:'明鑫'}
+{name:'大连工业大学',value:'明鑫'},
+{name:'山东农业大学',value:'王美蘅'}
 ];
+//坐标
 var geoCoordMap = {
 '中南大学'	:[	113.000139,28.145198	],
 '湖南师范大学'	:[	112.956577,28.191015	],
@@ -100,9 +103,31 @@ var geoCoordMap = {
 '青岛大学':[120.429622,36.077366],
 '中北大学':[112.4491,38.01585],
 '黑龙江大学':[126.62034,45.70892],
-'大连工业大学':[121.534443515,38.9769960086]
+'大连工业大学':[121.534443515,38.9769960086],
+'山东农业大学':[117.15735,36.16402]
 };
-
+//颜色配置文件
+var time = new Date();
+if(time.getHours()>5&&time.getHours()<21)
+{
+var titleColor = '#fff'; 
+var subtitleColor = '#E6E6E6';
+var backgroundColor = '#4DAEB5';
+var areaColor = '#98FB98';
+var borderColor = '#029fd4';
+var spotColor = '#DDA0DD';
+var tooltipColor = '#F0E68C';
+}
+else {
+var titleColor = '#E6E6E6'; 
+var subtitleColor = '#E6E6E6';
+var backgroundColor = '#222222';
+var areaColor = '#929292';
+var borderColor = '#F0F0F0';
+var spotColor = '#FF6972';
+var tooltipColor = '#C5BEBF';
+}
+//构造数组
 var convertData = function (data) {
     var res = [];
     for (var i = 0; i < data.length; i++) {
@@ -117,33 +142,33 @@ var convertData = function (data) {
     }
     return res;
 };
-
+//配置项
 option =
-    {
-     //容器背景色
-     backgroundColor: '#F3F3F3',//4A708B
+    {  
+     backgroundColor: backgroundColor,
      title:
 	    {
          text: '一七式调兵山一高二班同学蹭饭图',
-         subtext: '三号机改二型丙',
+         subtext: '三号机改四型丙',
          left: 'center',
-         textStyle: {color: '#000'}
-        },
+         textStyle: {color:titleColor},
+		 subtextStyle:{color:subtitleColor}
+        },	
      tooltip:
 	    {
          trigger: 'item',
          //triggerOn:'mousemove',
-         hideDelay:300,
-         //规定悬浮框内容
+         hideDelay:300,        
 		 confine:true,
 		 textStyle:
 		    {
 		     fontWeight:'bold',
 			 fontFamily:'KaiTi',
 		     fontSize:22,
-			 color:'#F0E68C'},
+			 color:tooltipColor
+			},			 
              formatter: function (params) {return params.name + '<br/>' + params.value[2];}
-            },
+        },
 
      toolbox:
 	    {
@@ -157,8 +182,7 @@ option =
               dataView:
 			    {
 				 readOnly: true,
-				 lang:['这些数据组成了这张蹭饭图','关闭']},
-                 //restore: {},
+				 lang:['这些数据组成了这张蹭饭图','关闭']},                 
                  saveAsImage: {},
                  myAnother:
 				    {
@@ -189,10 +213,6 @@ option =
           y: 'bottom',
           x:'right',
           data:['大学'],
-          textStyle:
-	        {
-             color: '#fff'
-            }
         },
      geo:
         {
@@ -215,15 +235,12 @@ option =
 		    {
               normal:
 			    {
-                 //区域颜色
-                 areaColor: '#98FB98',//044161
-                 //边界颜色
-                 borderColor: '#029fd4'
+                 areaColor: areaColor ,
+                 borderColor: borderColor
                 },
               emphasis:
 			    {
-                 //响应颜色
-                 areaColor: '#2a333d'
+                 areaColor:  areaColor
                 }
             },
 		  silent: true //禁止地图响应鼠标操作
@@ -240,7 +257,8 @@ option =
           //  symbolSize: function (val) {
           //      return val[2] / 10;
           //},
-          symbolSize: 19,
+		  symbol:'pin',
+          symbolSize: 36,
           label:
 		    {
               normal:
@@ -258,8 +276,7 @@ option =
 		    {
               normal:
 			    {
-                  //圆圈颜色
-                  color: '#DDA0DD'
+                  color: spotColor
                 }
             }
 
