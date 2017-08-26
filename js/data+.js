@@ -16,7 +16,7 @@ var data = [
 {name: 	'安徽财经大学'	, value: '常裕琦'},
 {name: 	'辽宁大学(道义校区)', value: '康茜 贾茜雯 马凯旋'},
 {name: 	'辽宁大学(崇山校区)', value: '于泽玉'},
-{name: 	'沈阳航空航天大学', value: "这个蹭饭图的作者"},
+{name: 	'沈阳航空航天大学', value: "这个蹭饭图的作者 还有人马"},
 {name: 	'沈阳师范大学'	, value: "顾晨熙"},
 {name: 	'东北大学'	, value: "赵钧沣 赵元晨"},
 {name: 	'中国医科大学'	, value: "杨悦"},
@@ -156,7 +156,7 @@ option =
      title:
 	    {
          text: '一七式调兵山一高二班同学蹭饭图',
-         subtext: '三号机改四型丁',
+         subtext: '三号机改四型戊',
          left: 'center',
          textStyle: {color:titleColor},
 		 subtextStyle:{color:subtitleColor}
