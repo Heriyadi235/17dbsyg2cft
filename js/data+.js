@@ -132,7 +132,7 @@ var convertData = function (data) {
 var time = new Date();
 if(time.getHours()>5&&time.getHours()<21)
 {
-var titleColor = '#fff'; 
+var titleColor = '#fff';
 var subtitleColor = '#E6E6E6';
 var backgroundColor = '#20B2AA';
 var areaColor = '#FAFAD2';
@@ -141,7 +141,7 @@ var spotColor = '#DDA0DD';
 var tooltipColor = '#F0E68C';
 }
 else {
-var titleColor = '#E6E6E6'; 
+var titleColor = '#E6E6E6';
 var subtitleColor = '#E6E6E6';
 var backgroundColor = '#222222';
 var areaColor = '#929292';
@@ -151,7 +151,7 @@ var tooltipColor = '#C5BEBF';
 }
 //配置项
 option =
-    {  
+    {
      backgroundColor: backgroundColor,
      title:
 	    {
@@ -160,12 +160,12 @@ option =
          left: 'center',
          textStyle: {color:titleColor},
 		 subtextStyle:{color:subtitleColor}
-        },	
+        },
      tooltip:
 	    {
          trigger: 'item',
          //triggerOn:'mousemove',
-         hideDelay:300,        
+         hideDelay:300,
 		 confine:true,
 		 textStyle:
 		    {
@@ -173,7 +173,7 @@ option =
 			 fontFamily:'KaiTi',
 		     fontSize:22,
 			 color:tooltipColor
-			},			 
+			},
              formatter: function (params) {return params.name + '<br/>' + params.value[2];}
         },
 
@@ -191,7 +191,7 @@ option =
 				 readOnly: true,
 				 lang:['这些数据组成了这张蹭饭图','关闭']
 
-				 },                 
+				 },
                  saveAsImage: {},
                  myAnother:
 				    {
@@ -200,7 +200,8 @@ option =
                       icon: 'path://M510.364 188.323 578.278 407.062l16.092 40.232 43.331 0 191.571 0-157.451 119.294-34.331 26.011 13.169 42.598 55.84 192.321-160.369-120.373-34.7-23.381-35.336 22.408-161.906 125.448 56.987-194.391 13.927-43.22-36.193-27.422-157.454-119.293 191.567 0 43.329 0 16.093-40.23L510.364 188.323M510.367 0l-127.346 383.293-382.02 0 309.258 234.306-119.734 405.401 319.843-262.781 317.625 262.781-117.523-405.401 309.252-234.306-382.02 0L510.367 0 510.367 0z',
 				      onclick: function ()
 					    {
-                          alert('我也没想好做什么功能')
+                          //alert('我也没想好做什么功能')
+                          window.open("ticket.html")
                         }
                     },
 		         myAbout:
